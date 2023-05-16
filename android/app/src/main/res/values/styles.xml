@@ -15,4 +15,7 @@
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
+
+    <color name="gradient_bg_start">#00050F0D</color>
+    <color name="gradient_bg_end">#FF050F0D</color>
 </resources>

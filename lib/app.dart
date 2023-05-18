@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/my_lockers_screen.dart';
+import 'screens/screens.dart';
 import 'themes/themes.dart';
 
 class App extends StatelessWidget {
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: lightTheme,
-      home: const MyLockersScreen(),
+      home: const HomeScreen(),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../gen/assets.gen.dart';
+import '../view_models/locker_vm/locker_vm.dart';
 import 'custom_chip.dart';
 import 'sized_icon.dart';
 
@@ -13,25 +14,22 @@ const _avatarAndChipSeparator = 10.0;
 class LockerListTile extends StatelessWidget {
   const LockerListTile({
     super.key,
-    required this.title,
-    required this.id,
-    required this.isLocked,
+    required this.locker,
     required this.onSwitched,
   });
 
-  final String title;
-  final String id;
-  final bool isLocked;
+  final LockerVM locker;
   final void Function(bool) onSwitched;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final color =
-        isLocked ? theme.colorScheme.primary : theme.colorScheme.secondary;
+    final color = locker.isLocked
+        ? theme.colorScheme.primary
+        : theme.colorScheme.secondary;
     final icon =
-        isLocked ? Assets.image.svg.lock : Assets.image.svg.unlockedLock;
+        locker.isLocked ? Assets.image.svg.lock : Assets.image.svg.unlockedLock;
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -59,19 +57,19 @@ class LockerListTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      locker.title,
                       style: theme.textTheme.bodyLarge,
                     ),
                     Text(
-                      'id: $id',
+                      'id: ${locker.id}',
                       style: theme.textTheme.bodyMedium,
                     ),
                   ],
                 ),
               ),
               CupertinoSwitch(
-                value: isLocked,
-                activeColor: theme.primaryColor,
+                value: locker.isLocked,
+                activeColor: theme.colorScheme.primary,
                 onChanged: onSwitched,
               ),
             ],
@@ -84,7 +82,7 @@ class LockerListTile extends StatelessWidget {
               left: 2 * _circleAvatarRadius + _avatarAndTitleSeparator,
             ),
             child: CustomChip(
-              text: 'UNLOCKED',
+              text: '${locker.isLocked ? '' : 'UN'}LOCKED',
               background: color,
             ),
           ),

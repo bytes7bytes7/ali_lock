@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'app.dart';
+import 'injector/injector.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // TODO: change to dev
+  await configureDependencies(env: 'test');
+
   runApp(const App());
 }

@@ -81,12 +81,12 @@ final lightTheme = ThemeData.light().copyWith(
       ),
     ),
   ),
-  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
     elevation: 0,
     selectedItemColor: _LightColors.casal,
-    unselectedItemColor: _LightColors.outerSpace,
+    unselectedItemColor: _LightColors.outerSpace.withOpacity(0.7),
     backgroundColor: _LightColors.white,
-    selectedLabelStyle: TextStyle(
+    selectedLabelStyle: const TextStyle(
       fontSize: 13,
       fontWeight: FontWeight.w700,
       fontFamily: FontFamily.sfPro,
@@ -96,7 +96,7 @@ final lightTheme = ThemeData.light().copyWith(
       fontSize: 13,
       fontWeight: FontWeight.w500,
       fontFamily: FontFamily.sfPro,
-      color: _LightColors.outerSpace,
+      color: _LightColors.outerSpace.withOpacity(0.7),
     ),
   ),
 );

@@ -1,63 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/my_lockers/my_lockers_bloc.dart';
 import '../gen/assets.gen.dart';
 import '../widgets/custom_icon_button.dart';
 import '../widgets/locker_list_tile.dart';
-import '../widgets/sized_icon.dart';
 
 const _mainSheetRadius = 22.0;
 const _paddingH = 24.0;
-const _tabIconSize = 24.0;
 
 class MyLockersScreen extends StatelessWidget {
   const MyLockersScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Scaffold(
-      body: _Body(theme: theme),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        onTap: (i) {},
-        items: [
-          BottomNavigationBarItem(
-            label: 'My lockers',
-            icon: SizedIcon(
-              icon: Assets.image.svg.myLockers.svg(),
-              size: const Size.square(_tabIconSize),
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'My friends',
-            icon: SizedIcon(
-              icon: Assets.image.svg.friends.svg(),
-              size: const Size.square(_tabIconSize),
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Profile',
-            icon: SizedIcon(
-              icon: Assets.image.svg.profile.svg(),
-              size: const Size.square(_tabIconSize),
-            ),
-          ),
-        ],
-      ),
+    return const Scaffold(
+      body: _Body(),
     );
   }
 }
 
 class _Body extends StatelessWidget {
-  const _Body({
-    required this.theme,
-  });
-
-  final ThemeData theme;
+  const _Body();
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return SafeArea(
       child: Column(
         children: [
@@ -106,35 +75,67 @@ class _Body extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: 3,
-                      itemBuilder: (context, index) {
-                        if (index == 2) {
-                          return const _AddLockerButton();
-                        }
-
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: _paddingH,
-                            vertical: 8,
-                          ),
-                          child: LockerListTile(
-                            title: 'Locker 1',
-                            id: 'du2dh22fhfe2',
-                            isLocked: false,
-                            onSwitched: (v) {},
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+                  const _LockersList(),
                 ],
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _LockersList extends StatelessWidget {
+  const _LockersList();
+
+  @override
+  Widget build(BuildContext context) {
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+
+    return BlocConsumer<MyLockersBloc, MyLockersState>(
+      listener: (context, state) {
+        if (state.error.isNotEmpty) {
+          scaffoldMessenger.showSnackBar(
+            SnackBar(
+              content: Text(state.error),
+            ),
+          );
+        }
+      },
+      builder: (context, state) {
+        if (state.isLoading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
+        final itemCount = state.lockers.length + 1;
+
+        return Expanded(
+          child: ListView.builder(
+            itemCount: itemCount,
+            itemBuilder: (context, index) {
+              if (index == itemCount - 1) {
+                return const _AddLockerButton();
+              }
+
+              final locker = state.lockers[index];
+
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: _paddingH,
+                  vertical: 8,
+                ),
+                child: LockerListTile(
+                  locker: locker,
+                  onSwitched: (v) {},
+                ),
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

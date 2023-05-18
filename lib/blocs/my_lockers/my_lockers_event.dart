@@ -6,3 +6,15 @@ abstract class MyLockersEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }
+
+class LoadDataMyLockersEvent extends MyLockersEvent {
+  const LoadDataMyLockersEvent();
+}
+
+class ChangeLockMyLockersEvent extends MyLockersEvent {
+  const ChangeLockMyLockersEvent();
+}
+
+class AddLockerMyLockersEvent extends MyLockersEvent {
+  const AddLockerMyLockersEvent();
+}

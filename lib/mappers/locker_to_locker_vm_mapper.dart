@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import '../domain/entities/locker/locker.dart';
-import '../view_models/locker_vm/locker_vm.dart';
+import '../features/my_lockers/application/view_models/locker_vm/locker_vm.dart';
+import '../features/my_lockers/domain/entities/locker/locker.dart';
 
 @singleton
 class LockerToLockerVMMapper {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../blocs/my_lockers/my_lockers_bloc.dart';
-import '../gen/assets.gen.dart';
+import '../../../../gen/assets.gen.dart';
+import '../../application/blocs/my_lockers/my_lockers_bloc.dart';
 import '../widgets/custom_icon_button.dart';
 import '../widgets/locker_list_tile.dart';
 

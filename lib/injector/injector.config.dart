@@ -9,11 +9,15 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:ali_lock/blocs/my_lockers/my_lockers_bloc.dart' as _i8;
+import 'package:ali_lock/features/my_lockers/application/blocs/my_lockers/my_lockers_bloc.dart'
+    as _i8;
+import 'package:ali_lock/features/my_lockers/infrastructure/modules/dio_module.dart'
+    as _i11;
 import 'package:ali_lock/mappers/locker_dto_to_locker_mapper.dart' as _i4;
 import 'package:ali_lock/mappers/locker_to_locker_vm_mapper.dart' as _i7;
-import 'package:ali_lock/modules/dio_module.dart' as _i9;
+import 'package:ali_lock/mappers/mappers.dart' as _i10;
 import 'package:ali_lock/repositories/impl/locker_repository.dart' as _i5;
+import 'package:ali_lock/repositories/interfaces/interfaces.dart' as _i9;
 import 'package:ali_lock/repositories/interfaces/locker_repository.dart' as _i6;
 import 'package:dio/dio.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
@@ -52,10 +56,10 @@ _i1.GetIt init(
   );
   gh.singleton<_i7.LockerToLockerVMMapper>(_i7.LockerToLockerVMMapper());
   gh.factory<_i8.MyLockersBloc>(() => _i8.MyLockersBloc(
-        gh<_i6.LockerRepository>(),
-        gh<_i7.LockerToLockerVMMapper>(),
+        gh<_i9.LockerRepository>(),
+        gh<_i10.LockerToLockerVMMapper>(),
       ));
   return getIt;
 }
 
-class _$DioModule extends _i9.DioModule {}
+class _$DioModule extends _i11.DioModule {}

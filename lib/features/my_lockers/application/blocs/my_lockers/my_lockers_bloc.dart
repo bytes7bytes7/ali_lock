@@ -2,8 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../mappers/locker_to_locker_vm_mapper.dart';
-import '../../repositories/interfaces/locker_repository.dart';
+import '../../../../../mappers/mappers.dart';
+import '../../../../../repositories/interfaces/interfaces.dart';
 import '../../view_models/locker_vm/locker_vm.dart';
 
 part 'my_lockers_event.dart';

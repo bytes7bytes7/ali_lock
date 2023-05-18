@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/entities/locker/locker.dart';
 import '../../dto/locker_info_response/locker_info_response.dart';
+import '../../features/my_lockers/domain/entities/locker/locker.dart';
 import '../../mappers/locker_dto_to_locker_mapper.dart';
 import '../interfaces/locker_repository.dart';
 

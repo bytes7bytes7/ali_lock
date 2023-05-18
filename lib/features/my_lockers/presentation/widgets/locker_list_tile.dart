@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../gen/assets.gen.dart';
-import '../view_models/locker_vm/locker_vm.dart';
+import '../../../../gen/assets.gen.dart';
+import '../../application/view_models/locker_vm/locker_vm.dart';
 import 'custom_chip.dart';
 import 'sized_icon.dart';
 

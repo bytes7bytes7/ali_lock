@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import '../domain/entities/locker/locker.dart';
 import '../dto/locker_dto/locker_dto.dart';
+import '../features/my_lockers/domain/entities/locker/locker.dart';
 
 @singleton
 class LockerDTOToLockerMapper {

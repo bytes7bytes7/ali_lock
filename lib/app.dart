@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/screens.dart';
+import 'features/features.dart';
 import 'themes/themes.dart';
 
 class App extends StatelessWidget {

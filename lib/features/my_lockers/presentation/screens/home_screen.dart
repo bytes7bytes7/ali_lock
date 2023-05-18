@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../blocs/blocs.dart';
-import '../gen/assets.gen.dart';
-import '../widgets/sized_icon.dart';
+import '../../../../gen/assets.gen.dart';
+import '../../application/blocs/home/home_bloc.dart';
+import '../../application/blocs/my_lockers/my_lockers_bloc.dart';
+import '../widgets/widgets.dart';
 import 'my_lockers_screen.dart';
 
 const _tabIconSize = 24.0;

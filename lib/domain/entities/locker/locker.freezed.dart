@@ -14,19 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Locker _$LockerFromJson(Map<String, dynamic> json) {
-  return _Locker.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Locker {
   int get id => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'is_lock')
   bool get isLocked => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LockerCopyWith<Locker> get copyWith => throw _privateConstructorUsedError;
 }
@@ -36,11 +30,7 @@ abstract class $LockerCopyWith<$Res> {
   factory $LockerCopyWith(Locker value, $Res Function(Locker) then) =
       _$LockerCopyWithImpl<$Res, Locker>;
   @useResult
-  $Res call(
-      {int id,
-      String code,
-      String title,
-      @JsonKey(name: 'is_lock') bool isLocked});
+  $Res call({int id, String code, String title, bool isLocked});
 }
 
 /// @nodoc
@@ -88,11 +78,7 @@ abstract class _$$_LockerCopyWith<$Res> implements $LockerCopyWith<$Res> {
       __$$_LockerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      String code,
-      String title,
-      @JsonKey(name: 'is_lock') bool isLocked});
+  $Res call({int id, String code, String title, bool isLocked});
 }
 
 /// @nodoc
@@ -132,16 +118,13 @@ class __$$_LockerCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Locker implements _Locker {
   const _$_Locker(
       {required this.id,
       required this.code,
       required this.title,
-      @JsonKey(name: 'is_lock') required this.isLocked});
-
-  factory _$_Locker.fromJson(Map<String, dynamic> json) =>
-      _$$_LockerFromJson(json);
+      required this.isLocked});
 
   @override
   final int id;
@@ -150,7 +133,6 @@ class _$_Locker implements _Locker {
   @override
   final String title;
   @override
-  @JsonKey(name: 'is_lock')
   final bool isLocked;
 
   @override
@@ -170,7 +152,6 @@ class _$_Locker implements _Locker {
                 other.isLocked == isLocked));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, code, title, isLocked);
 
@@ -179,13 +160,6 @@ class _$_Locker implements _Locker {
   @pragma('vm:prefer-inline')
   _$$_LockerCopyWith<_$_Locker> get copyWith =>
       __$$_LockerCopyWithImpl<_$_Locker>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_LockerToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Locker implements Locker {
@@ -193,9 +167,7 @@ abstract class _Locker implements Locker {
       {required final int id,
       required final String code,
       required final String title,
-      @JsonKey(name: 'is_lock') required final bool isLocked}) = _$_Locker;
-
-  factory _Locker.fromJson(Map<String, dynamic> json) = _$_Locker.fromJson;
+      required final bool isLocked}) = _$_Locker;
 
   @override
   int get id;
@@ -204,7 +176,6 @@ abstract class _Locker implements Locker {
   @override
   String get title;
   @override
-  @JsonKey(name: 'is_lock')
   bool get isLocked;
   @override
   @JsonKey(ignore: true)

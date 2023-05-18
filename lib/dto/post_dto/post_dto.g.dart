@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'locker.dart';
+part of 'post_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Locker _$$_LockerFromJson(Map<String, dynamic> json) => _$_Locker(
+PostDTO _$PostDTOFromJson(Map<String, dynamic> json) => PostDTO(
       id: json['id'] as int,
-      code: json['code'] as String,
+      userId: json['userId'] as int,
       title: json['title'] as String,
-      isLocked: json['is_lock'] as bool,
+      description: json['description'] as String,
     );
 
-Map<String, dynamic> _$$_LockerToJson(_$_Locker instance) => <String, dynamic>{
+Map<String, dynamic> _$PostDTOToJson(PostDTO instance) => <String, dynamic>{
       'id': instance.id,
-      'code': instance.code,
+      'userId': instance.userId,
       'title': instance.title,
-      'is_lock': instance.isLocked,
+      'description': instance.description,
     };

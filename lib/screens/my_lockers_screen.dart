@@ -92,6 +92,7 @@ class _LockersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scaffoldMessenger = ScaffoldMessenger.of(context);
+    final bloc = context.read<MyLockersBloc>();
 
     return BlocConsumer<MyLockersBloc, MyLockersState>(
       listener: (context, state) {
@@ -113,26 +114,30 @@ class _LockersList extends StatelessWidget {
         final itemCount = state.lockers.length + 1;
 
         return Expanded(
-          child: ListView.builder(
-            itemCount: itemCount,
-            itemBuilder: (context, index) {
-              if (index == itemCount - 1) {
-                return const _AddLockerButton();
-              }
+          child: RefreshIndicator(
+            onRefresh: () async => bloc.add(const LoadDataMyLockersEvent()),
+            child: ListView.builder(
+              physics: const AlwaysScrollableScrollPhysics(),
+              itemCount: itemCount,
+              itemBuilder: (context, index) {
+                if (index == itemCount - 1) {
+                  return const _AddLockerButton();
+                }
 
-              final locker = state.lockers[index];
+                final locker = state.lockers[index];
 
-              return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: _paddingH,
-                  vertical: 8,
-                ),
-                child: LockerListTile(
-                  locker: locker,
-                  onSwitched: (v) {},
-                ),
-              );
-            },
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: _paddingH,
+                    vertical: 8,
+                  ),
+                  child: LockerListTile(
+                    locker: locker,
+                    onSwitched: (v) {},
+                  ),
+                );
+              },
+            ),
           ),
         );
       },

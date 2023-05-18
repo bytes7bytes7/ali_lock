@@ -7,7 +7,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // TODO: change to dev
-  await configureDependencies(env: 'test');
+  await configureDependencies(env: 'prod');
 
   runApp(const App());
 }

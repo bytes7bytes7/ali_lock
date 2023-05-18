@@ -40,9 +40,13 @@ class $AssetsImageSvgGen {
   /// File path: assets/image/svg/profile.svg
   SvgGenImage get profile => const SvgGenImage('assets/image/svg/profile.svg');
 
+  /// File path: assets/image/svg/unlocked_lock.svg
+  SvgGenImage get unlockedLock =>
+      const SvgGenImage('assets/image/svg/unlocked_lock.svg');
+
   /// List of all assets
   List<SvgGenImage> get values =>
-      [friends, lock, logOut, miniLogo, myLockers, profile];
+      [friends, lock, logOut, miniLogo, myLockers, profile, unlockedLock];
 }
 
 class Assets {

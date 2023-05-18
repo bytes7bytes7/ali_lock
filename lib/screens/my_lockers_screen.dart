@@ -11,7 +11,18 @@ class MyLockersScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: 2,
         itemBuilder: (context, index) {
-          return const LockerListTile();
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24,
+              vertical: 8,
+            ),
+            child: LockerListTile(
+              title: 'Locker 1',
+              id: 'du2dh22fhfe2',
+              isLocked: false,
+              onSwitched: (v) {},
+            ),
+          );
         },
       ),
     );

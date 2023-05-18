@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SecondaryChip extends StatelessWidget {
-  const SecondaryChip({
+class CustomChip extends StatelessWidget {
+  const CustomChip({
     super.key,
     required this.text,
+    required this.background,
   });
 
   final String text;
+  final Color background;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class SecondaryChip extends StatelessWidget {
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: theme.highlightColor,
+        color: background,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Padding(

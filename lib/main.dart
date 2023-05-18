@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'app.dart';
 import 'injector/injector.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(
+    widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
+  );
 
-  // TODO: change to dev
   await configureDependencies(env: 'prod');
+
+  FlutterNativeSplash.remove();
 
   runApp(const App());
 }

@@ -24,6 +24,7 @@ class ChangeLockMyLockersEvent extends MyLockersEvent {
   List<Object?> get props => [id, isLocked];
 }
 
+// event for adding new locker
 class AddLockerMyLockersEvent extends MyLockersEvent {
   const AddLockerMyLockersEvent();
 }

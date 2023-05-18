@@ -106,5 +106,7 @@ class MyLockersBloc extends Bloc<MyLockersEvent, MyLockersState> {
   Future<void> _addLocker(
     AddLockerMyLockersEvent event,
     Emitter<MyLockersState> emit,
-  ) async {}
+  ) async {
+    // logic for adding new locker
+  }
 }

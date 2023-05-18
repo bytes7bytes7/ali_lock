@@ -12,7 +12,16 @@ class LoadDataMyLockersEvent extends MyLockersEvent {
 }
 
 class ChangeLockMyLockersEvent extends MyLockersEvent {
-  const ChangeLockMyLockersEvent();
+  const ChangeLockMyLockersEvent({
+    required this.id,
+    required this.isLocked,
+  });
+
+  final String id;
+  final bool isLocked;
+
+  @override
+  List<Object?> get props => [id, isLocked];
 }
 
 class AddLockerMyLockersEvent extends MyLockersEvent {

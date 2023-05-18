@@ -133,7 +133,12 @@ class _LockersList extends StatelessWidget {
                   ),
                   child: LockerListTile(
                     locker: locker,
-                    onSwitched: (v) {},
+                    onSwitched: (v) => bloc.add(
+                      ChangeLockMyLockersEvent(
+                        id: locker.id,
+                        isLocked: v,
+                      ),
+                    ),
                   ),
                 );
               },

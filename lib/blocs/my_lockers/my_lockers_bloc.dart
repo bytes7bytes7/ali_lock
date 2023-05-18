@@ -58,7 +58,50 @@ class MyLockersBloc extends Bloc<MyLockersEvent, MyLockersState> {
   Future<void> _changeLock(
     ChangeLockMyLockersEvent event,
     Emitter<MyLockersState> emit,
-  ) async {}
+  ) async {
+    final lockers = List.of(state.lockers);
+
+    LockerVM? locker;
+    int? index;
+    final iterator = lockers.iterator..moveNext();
+    for (var i = 0; i < lockers.length; i++) {
+      final current = iterator.current;
+
+      if (current.id == event.id) {
+        locker = current;
+        index = i;
+        break;
+      }
+
+      iterator.moveNext();
+    }
+
+    if (locker == null || index == null) {
+      emit(
+        state.copyWith(
+          error: 'Ошибка поиска',
+        ),
+      );
+
+      emit(state.copyWith());
+
+      return;
+    }
+
+    if (locker.isLocked == event.isLocked) {
+      return;
+    }
+
+    final newLocker = locker.copyWith(
+      isLocked: event.isLocked,
+    );
+
+    emit(
+      state.copyWith(
+        lockers: lockers..[index] = newLocker,
+      ),
+    );
+  }
 
   Future<void> _addLocker(
     AddLockerMyLockersEvent event,

@@ -11,4 +11,5 @@ class _LightColors {
   static const gin = Color(0xFFF1F6F4);
   static const brandyPunch = Color(0xFFC7772E);
   static const nebula = Color(0xFFD2DBD8);
+  static const black = Color(0xFF000000);
 }

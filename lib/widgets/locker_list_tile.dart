@@ -28,7 +28,8 @@ class LockerListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final color = isLocked ? theme.primaryColor : theme.highlightColor;
+    final color =
+        isLocked ? theme.colorScheme.primary : theme.colorScheme.secondary;
     final icon =
         isLocked ? Assets.image.svg.lock : Assets.image.svg.unlockedLock;
 

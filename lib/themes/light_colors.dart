@@ -10,4 +10,5 @@ class _LightColors {
   static const aquaHaze = Color(0xFFF7FAF9);
   static const gin = Color(0xFFF1F6F4);
   static const brandyPunch = Color(0xFFC7772E);
+  static const nebula = Color(0xFFD2DBD8);
 }

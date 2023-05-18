@@ -8,14 +8,14 @@ class SizedIcon extends StatelessWidget {
   });
 
   final Widget icon;
-  final double size;
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
     return UnconstrainedBox(
       alignment: Alignment.center,
-      child: SizedBox.square(
-        dimension: size,
+      child: SizedBox.fromSize(
+        size: size,
         child: icon,
       ),
     );

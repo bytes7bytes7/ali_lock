@@ -46,7 +46,7 @@ class LockerListTile extends StatelessWidget {
                 backgroundColor: color,
                 radius: _circleAvatarRadius,
                 child: SizedIcon(
-                  size: _iconSize,
+                  size: const Size.square(_iconSize),
                   icon: icon.svg(),
                 ),
               ),

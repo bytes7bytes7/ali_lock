@@ -10,13 +10,60 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
+  flutter_svg: ^2.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  build_runner: ^2.3.3
+  flutter_lints: ^2.0.1
+  flutter_gen_runner: ^5.3.1
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/image/svg/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: fonts/inter/Inter-Black.ttf
+        - asset: fonts/inter/Inter-Bold.ttf
+        - asset: fonts/inter/Inter-ExtraBold.ttf
+        - asset: fonts/inter/Inter-ExtraLight.ttf
+        - asset: fonts/inter/Inter-Light.ttf
+        - asset: fonts/inter/Inter-Medium.ttf
+        - asset: fonts/inter/Inter-Regular.ttf
+        - asset: fonts/inter/Inter-SemiBold.ttf
+        - asset: fonts/inter/Inter-Thin.ttf
+    - family: Manrope
+      fonts:
+        - asset: fonts/manrope/Manrope-Bold.ttf
+        - asset: fonts/manrope/Manrope-ExtraBold.ttf
+        - asset: fonts/manrope/Manrope-ExtraLight.ttf
+        - asset: fonts/manrope/Manrope-Light.ttf
+        - asset: fonts/manrope/Manrope-Medium.ttf
+        - asset: fonts/manrope/Manrope-Regular.ttf
+        - asset: fonts/manrope/Manrope-SemiBold.ttf
+    - family: SfPro
+      fonts:
+        - asset: fonts/sf-pro/SF-Pro-Black.otf
+        - asset: fonts/sf-pro/SF-Pro-Bold.otf
+        - asset: fonts/sf-pro/SF-Pro-ExtraLight.otf
+        - asset: fonts/sf-pro/SF-Pro-Light.otf
+        - asset: fonts/sf-pro/SF-Pro-Medium.otf
+        - asset: fonts/sf-pro/SF-Pro-Regular.otf
+        - asset: fonts/sf-pro/SF-Pro-SemiBold.otf
+        - asset: fonts/sf-pro/SF-Pro-Thin.otf
+
+flutter_gen:
+  output: lib/gen/
+
+  integrations:
+    flutter_svg: true
+    flare_flutter: true
+    rive: true
+    lottie: true
